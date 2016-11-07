@@ -10,7 +10,10 @@ describe('Protractor Tests for cps app', function() {
 
   it('Click on side menu', function() {
     browser.get('http://localhost:8100/#/app/home');
-    element(by.css('button button-icon button-clear icon-navicon'));
+    element.all(by.css('*[name="javier-menu"]')).get(0).click();
+    setTimeout(function () {
+
+    }, 1000);
 
   });
 
