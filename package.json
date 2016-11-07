@@ -2,6 +2,9 @@
   "name": "cps-app",
   "version": "1.1.1",
   "description": "cps-app: An Ionic project",
+  "scripts": {
+    "test": "node_modules/karma/bin/karma start tests/unit-tests.conf.js --single-run"
+  },
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",

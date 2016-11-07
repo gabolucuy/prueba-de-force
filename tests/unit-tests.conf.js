@@ -16,7 +16,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       {pattern: '../www/lib/ionic/js/ionic.bundle.js', included: false},
-      {pattern: '../lib/ionic-close-popup/ionic-close-popup.js', included: false},
+      {pattern: '../www/lib/ionic-close-popup/ionic-close-popup.js', included: false},
       {pattern: '../www/lib/ionic-close-popup/ionic-close-popup.js', included: false},
       {pattern: '../www/lib/ngCordova/dist/ng-cordova.js', included: false},
       {pattern: '../www/js/**/*.js', included: false},
