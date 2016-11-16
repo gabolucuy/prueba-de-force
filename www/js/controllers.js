@@ -92,7 +92,7 @@ angular.module('starter.controllers', [])
     $scope.activeChild = active_child;
     $scope.laggingSkills = getLaggingSkills($cordovaSQLite, $scope.activeChild.id);
   });
-  $scope.checkLaggingSkill = function(laggingskillId){
+  $scope.checkLaggingSkill = function($cordovaSQLite, laggingskillId){
     checkLaggingSkill($cordovaSQLite, [laggingskillId]);
     $state.go('app.laggingSkills');
     $ionicListDelegate.closeOptionButtons();

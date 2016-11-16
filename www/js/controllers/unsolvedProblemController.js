@@ -5,6 +5,7 @@ angular.module('starter.controllers').controller('UnsolvedProblemCtrl', function
   $scope.unsolvedProblems = [];
 
   console.log($state.params.laggingSkillsId);
+  // console.log($scope.laggingSkills);
 
   ChildrenFactory.active(function(active_child){
     $scope.activeChild = active_child;
@@ -69,7 +70,9 @@ angular.module('starter.controllers').controller('UnsolvedProblemCtrl', function
       $scope.unsolvedProblem.child_id = $scope.activeChild.id;
       UnsolvedProblemFactory.insert($scope.unsolvedProblem);
       $scope.unsolvedProblem = {};
-      // LaggingSkills.checkLaggingSkill($state.params.laggingSkillsId);
+
+      checkLaggingSkill($cordovaSQLite, $state.params.laggingSkillsId);
+      
       $scope.updateUnsolvedProblems();
       $scope.closeModalCreate();
     }
