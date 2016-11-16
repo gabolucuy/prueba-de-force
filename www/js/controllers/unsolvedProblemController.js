@@ -1,8 +1,10 @@
-angular.module('starter.controllers').controller('UnsolvedProblemCtrl', function($scope, UnsolvedProblemFactory, $cordovaSQLite, $state, $ionicActionSheet,$ionicListDelegate, $ionicPopup, $ionicModal, $stateParams, ChildrenFactory) {
+angular.module('starter.controllers').controller('UnsolvedProblemCtrl', function($scope, UnsolvedProblemFactory, $cordovaSQLite, $state, $ionicActionSheet,$ionicListDelegate, $ionicPopup, $ionicModal, $stateParams, ChildrenFactory, LaggingSkills) {
   $scope.unsolvedProblem = {};
   $scope.shouldShowReorder = false;
   $scope.firstItemAnimationShown = false;
   $scope.unsolvedProblems = [];
+
+  console.log($state.params.laggingSkillsId);
 
   ChildrenFactory.active(function(active_child){
     $scope.activeChild = active_child;
@@ -67,6 +69,7 @@ angular.module('starter.controllers').controller('UnsolvedProblemCtrl', function
       $scope.unsolvedProblem.child_id = $scope.activeChild.id;
       UnsolvedProblemFactory.insert($scope.unsolvedProblem);
       $scope.unsolvedProblem = {};
+      // LaggingSkills.checkLaggingSkill($state.params.laggingSkillsId);
       $scope.updateUnsolvedProblems();
       $scope.closeModalCreate();
     }
