@@ -70,7 +70,7 @@
           <button class="item-options item fake-button button button-assertive ion-trash-a"></button>
           <button class="item-options item fake-button button button-positive ion-eye"></button>
         </div>
-        <ion-item class="item item-text-wrap item-icon-left item-icon-right" ng-repeat="solution in solutions"  ng-class="{ slidein: $first && !firstItemAnimationShown}">
+        <ion-item class="item item-text-wrap item-icon-left item-icon-right" ng-repeat="solution in solutions"  ng-class="{ 'animated fadeInLeft': $first && !firstItemAnimationShown}">
           <i class="icon {{getRatingIcon(solution)}}"></i>
           <p>{{solution.description}}</p>
           <i class="icon ion-star" ng-click="showRatingPopup(solution,unsolvedProblem)"></i>
