@@ -1,7 +1,6 @@
 angular.module('starter.controllers').controller('UnsolvedProblemCtrl', function($scope, UnsolvedProblemFactory, $cordovaSQLite, $state, $ionicActionSheet,$ionicListDelegate, $ionicPopup, $ionicModal, $stateParams, ChildrenFactory, LaggingSkills) {
   $scope.unsolvedProblem = {};
   $scope.shouldShowReorder = false;
-  $scope.firstItemAnimationShown = false;
   $scope.unsolvedProblems = [];
 
   ChildrenFactory.active(function(active_child){

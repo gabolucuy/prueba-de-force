@@ -24,7 +24,7 @@
           <button class="item-options item fake-button button button-balanced ion-edit"></button>
           <button class="item-options item fake-button button button-assertive ion-trash-a"></button>
         </div>
-        <ion-item class="item item-text-wrap item-icon-right" ng-click="verifyToGoToStep2()" ng-repeat="childsConcern in childsConcerns" ng-class="{ 'animated fadeInLeft': $first && !firstItemAnimationShown }">
+        <ion-item class="item item-text-wrap item-icon-right" ng-click="verifyToGoToStep2()" ng-repeat="childsConcern in childsConcerns" ng-class="$first ? 'animated fadeInLeft' : ''">
           <p>{{childsConcern.description}}</p>
           <i class="icon dark ion-chevron-right"></i>
           <ion-option-button class="button button-balanced ion-edit" ng-click="editChildsConcern(childsConcern)" ng-hide="{{shouldShowReorder}}"></ion-option-button>
