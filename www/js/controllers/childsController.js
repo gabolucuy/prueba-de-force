@@ -16,7 +16,7 @@ angular.module('starter.controllers')
       $scope.modalCreate.hide();
     });
     $scope.openModalCreate = function() {
-      if(typeof analytics !== undefined) {
+      if(typeof analytics !== 'undefined') {
           analytics.startTrackerWithId("UA-105821683-1");
           analytics.trackView('create child view');
       } else {

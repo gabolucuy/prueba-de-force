@@ -274,7 +274,12 @@ angular.module('starter.controllers').controller('UnsolvedProblemCtrl', function
      return ( $scope.unsolvedProblems.size === 0 || $scope.firstItemAnimationShown );
    };
    $scope.unsolvedProblemHint = function(){
-      analytics.trackEvent('Hint en unsolved problems', 'Se abrio el hint')
+     if(typeof analytics !== 'undefined') {
+          analytics.trackEvent('Hint en unsolved problems', 'Se abrio el hint')
+      } else {
+          console.log("Google Analytics Unavailable");
+      }
+      
        $scope.openModalHint();
      };
    $scope.openModalHint = function() {
