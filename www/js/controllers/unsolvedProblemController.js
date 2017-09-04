@@ -106,7 +106,7 @@ angular.module('starter.controllers').controller('UnsolvedProblemCtrl', function
       if(res) {
        $state.go('app.showUnsolvedProblem',{ unsolvedProblemId:id});
       }
-      
+
       });
     }
     else {
@@ -274,6 +274,7 @@ angular.module('starter.controllers').controller('UnsolvedProblemCtrl', function
      return ( $scope.unsolvedProblems.size === 0 || $scope.firstItemAnimationShown );
    };
    $scope.unsolvedProblemHint = function(){
+      analytics.trackEvent('Hint en unsolved problems', 'Se abrio el hint')
        $scope.openModalHint();
      };
    $scope.openModalHint = function() {
