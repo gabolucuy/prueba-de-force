@@ -43,6 +43,9 @@ angular.module('starter.controllers')
       // Execute action
     });
 
+    $scope.showWizard = function() {
+      $state.go('app.childsWizard');     
+    };
 
     $ionicModal.fromTemplateUrl('templates/child/edit-child-modal.html', {
       scope: $scope,

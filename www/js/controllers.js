@@ -341,7 +341,28 @@ angular.module('starter.controllers', [])
                 });
             });
         };
-    });
+    })
+    .controller('ChildrenWizardCtrl', function($scope, $state, $ionicSlideBoxDelegate,$cordovaSQLite, $ionicPopup, ChildrenFactory, UnsolvedProblemFactory){
+      $scope.goBackToChildren = function() {
+        $state.go('app.childs');
+      };
+      $scope.watchChildrenWizard = function() {
+        $ionicSlideBoxDelegate.slide(0);    
+        $scope.slideIndex = 0;
+        $state.go($state.current, {}, {reload: true});
+      };
+      $scope.next = function() {
+        $ionicSlideBoxDelegate.next();
+      };
+      $scope.previous = function() {
+        $ionicSlideBoxDelegate.previous();
+      };
+
+      $scope.slideChanged = function(index) {
+        $scope.slideIndex = index;
+      };
+    }
+);
 
 
 // OTHER FUNCTIONS

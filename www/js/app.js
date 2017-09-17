@@ -81,6 +81,14 @@ angular.module('starter', ['ionic','ionic.closePopup' ,'starter.controllers', 's
         }
       }
   })
+  .state('app.childsWizard', {
+    url: '/childsWizard',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/appTutorials/childs_wizard.html'
+      }
+    }
+  })
   .state('app.mainHelp', {
     url: '/mainHelp',
     views: {
