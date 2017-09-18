@@ -1,50 +1,58 @@
 <ion-view view-title="Children Wizard" ng-controller="ChildrenWizardCtrl">
     
 <style>
-        #resplandorblanco{
-            -moz-box-shadow: 0px 0px 30px #008B8B; 
-            -webkit-box-shadow: 0px 0px 30px #008B8B; 
-            box-shadow: 0px 0px 30px #008B8B;
-        }
-    </style>
+    #resplandorblanco{
+        -moz-box-shadow: 0px 0px 30px #008B8B; 
+        -webkit-box-shadow: 0px 0px 30px #008B8B; 
+        box-shadow: 0px 0px 30px #008B8B;
+    }
+    #resplandornaranja{
+        -moz-box-shadow: 0px 0px 30px #E77C00; 
+        -webkit-box-shadow: 0px 0px 30px #E77C00; 
+        box-shadow: 0px 0px 30px #E77C00;
+    }
+    #resplandorrojo{
+        -moz-box-shadow: 0px 0px 30px #E70B00; 
+        -webkit-box-shadow: 0px 0px 30px #E70B00; 
+        box-shadow: 0px 0px 30px #E70B00;
+    }   
+</style>
 <ion-nav-buttons side="left">        
-    <button class="button button-positive button-clear no-animation"
-            ng-click="previous()" ng-show="slideIndex > 0">
+    <button class="button button-positive button-clear no-animation" ng-click="previous()" ng-show="slideIndex > 0">
     Previous
     </button>
 </ion-nav-buttons>
 
-<ion-nav-buttons side="right">
-    <button class="button button-positive button-clear no-animation"
-            ng-click="next()" ng-show="slideIndex != 5">
-    Next
-    </button>    
+<ion-nav-buttons side="right">      
 </ion-nav-buttons>
         
 <ion-slide-box on-slide-changed="slideChanged(index)">
 
-    <ion-slide>
-    <h3>Welcome to the Children Wizard</h3>
-    <div id="logo">
-        <img src="http://code.ionicframework.com/assets/img/app_icon.png">
-    </div>
-    <p>
-        Once you have selected a Lagging Skill you can create an Unsolved Problem.
-    </p>
-    <p>
-        Now we are going to show you how you can do it.
-    </p>
-    <button class="button button-positive button-clear no-animation" ng-click="next()">
-        ok
-    </button> 
+    <ion-slide style=" background-color: black; opacity: 0.95;filter: alpha(opacity=95);">                                
+        
+        
+        <h3 style="color: white;">Welcome to the Children Wizard</h3>
+        
+        <div id="logo">
+            <img src="http://code.ionicframework.com/assets/img/app_icon.png">
+        </div>
+        <p style="color: white;">
+            This will teach you how to register and manage your kid(s).
+        </p>
+        <p style="color: white;">
+            Now we are going to show you how you can do it.
+        </p>
+        <button class="button button-positive button-clear no-animation" ng-click="next()">
+            Let's begin!
+        </button> 
     </ion-slide>
 
     <ion-slide style=" background-color: black; opacity: 0.95;filter: alpha(opacity=95);">
-        <ion-content ng-controller="ChildsCtrl" id="normalPage">
-        <div ng-init="updateUnsolvedProblems()">
+        <ion-content ng-controller="ChildsCtrl">
+        <div ng-init="updateUnsolvedProblems()" >
             <div class="item item-divider item-text-wrap">
             <a ng-click="openModalCreate()" class="watchlist_menu button button-small button-clear button-positive">
-                <i class="icon ion-plus"></i>                          
+                <i class="icon ion-plus" id="resplandorrojo"></i>                          
             </a>       
             <div class="col col-75">            
                 <h2><b>My Children</b></h2>                  
@@ -52,7 +60,7 @@
             </div>
             <div class="row">
             <div class = "col">
-                <div class="card">
+                <div class="card" id="resplandorblanco">
                 <div class="item item-text-wrap text-center" >
                     <h2>
                     You haven't registered a child.
@@ -64,14 +72,14 @@
             </div>
             </div>
             <div class="row">
-        <div class = "col">
-            <div class="card">
-            <div class="item item-text-wrap text-center" >
+            <div class = "col">
+                <div class="card">
+                <div class="item item-text-wrap text-center" >
                 <h2>
+                First of all, you will see this message on the view.
                 Let's start with registering a child. </br>
-                With the <b>cross</b> you can open window with the fields to create a new child
-                
-
+                With the <b>cross</b> you can open a window with fields to create a new child.</br>
+                Fill them and then press on <b>create</b>.              
                 </h2>
             </div>
             </div>
@@ -79,13 +87,16 @@
         </div>
             </div>            
         </div>
+        <button class="button button-positive button-clear no-animation" ng-click="next()">
+            Done
+        </button> 
         </ion-content> 
     </ion-slide>
     <ion-slide style=" background-color: black; opacity: 0.95;filter: alpha(opacity=95);">
         <ion-content ng-controller="ChildsCtrl">
-            <div ng-init="updateUnsolvedProblems()" style="opacity: 0.5;filter: alpha(opacity=50);  ">
+            <div ng-init="updateUnsolvedProblems()" style="opacity: 0.5;filter: alpha(opacity=50);">
                 <div class="item item-divider item-text-wrap">
-                    <a ng-click="openModalCreate()" class="watchlist_menu button button-small button-clear button-positive">
+                    <a class="watchlist_menu button button-small button-clear button-positive">
                         <i class="icon ion-plus"></i>                          
                     </a>       
                     <div class="col col-75" >            
@@ -96,18 +107,18 @@
             
             <div class="row">
                 <div class="col col-50">
-                <div class="card" id="resplandorblanco">
-                    <div class="item item-text-wrap text-center">
+                <div class="card">
+                    <div class="item item-text-wrap text-center" style="opacity: 0.5;filter: alpha(opacity=50);">
                     <img class="full-image" ng-src="img/childs/boy.png" >                    
                     <h2><b>Pepe</b></h2>
                     <p><b>Birth date:</b> 17/09/2003</p>
                     </div>
                     <div class="item item-divider item-text-wrap text-center">
-                    <div class="button-bar">
-                        <div class="col col-50 button button-small button-balanced" >
-                        <i class="icon ion-arrow-right-c"></i>
+                    <div class="button-bar">                            
+                        <div class="col col-50 button button-small button-positive" style="opacity: 0.5;filter: alpha(opacity=50);">
+                        <i class="icon ion-arrow-right-b"></i>
                         </div>
-                        <div class="col col-50 button button-small button-calm" >
+                        <div class="col col-50 button button-small button-calm" id="resplandorblanco" ng-click="showActionsheet(child)">
                         <i class="icon ion-more"></i>
                         </div>
                     </div>
@@ -125,9 +136,7 @@
             <div class="item item-text-wrap text-center" >
                 <h2>
                 We have registered a kid, Pepe. </br>
-                With the <b>three points buttom</b> you can display the options to edit or delete the child
-                
-
+                With the <b>three points button</b> you can display the options to edit or delete the child                
                 </h2>
             </div>
             </div>
@@ -154,18 +163,18 @@
             
             <div class="row">
                 <div class="col col-50">
-                <div class="card" id="resplandorblanco">
-                    <div class="item item-text-wrap text-center">
+                <div class="card" >
+                    <div class="item item-text-wrap text-center" style="opacity: 0.5;filter: alpha(opacity=50);">
                     <img class="full-image" ng-src="img/childs/boy.png" >                    
                     <h2><b>Pepe</b></h2>
                     <p><b>Birth date:</b> 17/09/2003</p>
                     </div>
                     <div class="item item-divider item-text-wrap text-center">
                     <div class="button-bar">
-                        <div class="col col-50 button button-small button-balanced" >
-                        <i class="icon ion-arrow-right-c"></i>
+                        <div class="col col-50 button button-small button-positive" style="opacity: 0.5;filter: alpha(opacity=50);">
+                            <i class="icon ion-arrow-right-b"></i>
                         </div>
-                        <div class="col col-50 button button-small button-calm" >
+                        <div class="col col-50 button button-small button-calm" style="opacity: 0.5;filter: alpha(opacity=50);">
                         <i class="icon ion-more"></i>
                         </div>
                     </div>
@@ -173,26 +182,24 @@
                 </div>
                 </div>
                 <div class="col col-50">
-                <div class="card" id="resplandorblanco">
-                    <div class="item item-text-wrap text-center">
+                <div class="card"  >
+                    <div class="item item-text-wrap text-center" style="opacity: 0.5;filter: alpha(opacity=50);">
                     <img class="full-image" ng-src="img/childs/girl.png" >                    
                     <h2><b>Juana</b></h2>
                     <p><b>Birth date:</b> 26/02/2004</p>
                     </div>
                     <div class="item item-divider item-text-wrap text-center">
                     <div class="button-bar">
-                        <div class="col col-50 button button-small button-positive" >
+                        <div class="col col-50 button button-small button-positive"  id="resplandorblanco">
                         <i class="icon ion-arrow-right-b"></i>
                         </div>
-                        <div class="col col-50 button button-small button-calm" >
+                        <div class="col col-50 button button-small button-calm" style="opacity: 0.5;filter: alpha(opacity=50);">
                         <i class="icon ion-more"></i>
                         </div>
                     </div>
                     </div>
                 </div>
-                </div>
-            
-              
+                </div>                         
             </div>                  
         </div>
         
@@ -202,9 +209,7 @@
             <div class="item item-text-wrap text-center" >
                 <h2>
                 We have registered another kid, Juana. </br>
-                With a <b>blue button with a triangle</b> that means you can change the focus on her
-                
-
+                With the <b>blue button with a triangle</b> that means you can change the focus on her                
                 </h2>
             </div>
             </div>
@@ -219,7 +224,7 @@
 
     <ion-slide style=" background-color: black; opacity: 0.95;filter: alpha(opacity=95);">
         <ion-content ng-controller="ChildsCtrl">
-            <div ng-init="updateUnsolvedProblems()" style="opacity: 0.5;filter: alpha(opacity=50);  ">
+            <div ng-init="updateUnsolvedProblems()" style="opacity: 0.3;filter: alpha(opacity=30);  ">
                 <div class="item item-divider item-text-wrap">
                     <a ng-click="openModalCreate()" class="watchlist_menu button button-small button-clear button-positive">
                         <i class="icon ion-plus"></i>                          
@@ -232,18 +237,18 @@
             
             <div class="row">
                 <div class="col col-50">
-                <div class="card" id="resplandorblanco">
-                    <div class="item item-text-wrap text-center">
+                <div class="card">
+                    <div class="item item-text-wrap text-center" style="opacity: 0.3;filter: alpha(opacity=30);  ">
                     <img class="full-image" ng-src="img/childs/boy.png" >                    
                     <h2><b>Pepe</b></h2>
                     <p><b>Birth date:</b> 17/09/2003</p>
                     </div>
                     <div class="item item-divider item-text-wrap text-center">
                     <div class="button-bar">
-                        <div class="col col-50 button button-small button-positive" >
-                        <i class="icon ion-arrow-right-c"></i>
+                        <div class="col col-50 button button-small button-positive" style="opacity: 0.3;filter: alpha(opacity=30);">
+                        <i class="icon ion-arrow-right-b"></i>
                         </div>
-                        <div class="col col-50 button button-small button-calm" >
+                        <div class="col col-50 button button-small button-calm" style="opacity: 0.3;filter: alpha(opacity=30);">
                         <i class="icon ion-more"></i>
                         </div>
                     </div>
@@ -251,26 +256,24 @@
                 </div>
                 </div>
                 <div class="col col-50">
-                <div class="card" id="resplandorblanco">
-                    <div class="item item-text-wrap text-center">
+                <div class="card" >
+                    <div class="item item-text-wrap text-center" style="opacity: 0.3;filter: alpha(opacity=30);">
                     <img class="full-image" ng-src="img/childs/girl.png" >                    
                     <h2><b>Juana</b></h2>
                     <p><b>Birth date:</b> 26/02/2004</p>
                     </div>
                     <div class="item item-divider item-text-wrap text-center">
                     <div class="button-bar">
-                        <div class="col col-50 button button-small button-balanced" >
-                        <i class="icon ion-arrow-right-b"></i>
+                        <div class="col col-50 button button-small button-balanced" id="resplandorblanco">
+                        <i class="icon ion-arrow-right-c"></i>
                         </div>
-                        <div class="col col-50 button button-small button-calm" >
+                        <div class="col col-50 button button-small button-calm" style="opacity: 0.3;filter: alpha(opacity=30);">
                         <i class="icon ion-more"></i>
                         </div>
                     </div>
                     </div>
                 </div>
-                </div>
-            
-              
+                </div>                        
             </div>                  
         </div>
         
@@ -279,9 +282,7 @@
             <div class="card">
             <div class="item item-text-wrap text-center" >
                 <h2>
-                We have pressed in the Juana's blue button. </br> Thats means the <b>manage children</b> will be focus in her and no with Pepe
-                
-
+                We have pressed on Juana's blue button. </br> That means the <b>manage children</b> will be focus on her and not on Pepe.                
                 </h2>
             </div>
             </div>
@@ -294,9 +295,10 @@
         </ion-content> 
     </ion-slide>
 
-    <ion-slide>
-        
-        <h3>If you feel ready to start with the app, click below</h3>
+    <ion-slide style=" background-color: black;">
+        <div class="text-center" >
+        <h3 style="color: white;">You think you are ready to start with the app?</h3>
+        </div>
         <div>
         <button class="button button-positive button-clear no-animation" ng-click="goBackToChildren()" >
             I think i'm ready
@@ -304,7 +306,7 @@
         </div>
         <div>            
         <button class="button button-positive button-clear no-animation" ng-click="watchChildrenWizard()" >
-            maybe one more time
+            Maybe one more time
         </button>
         </div>
     </ion-slide>
