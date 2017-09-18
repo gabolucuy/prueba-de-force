@@ -222,6 +222,11 @@ body {
   height: 200px;
 }
 
+.tutorialGif img{
+  width: 120%;
+  height: auto;
+  margin-left: -15px;
+}
 /*input[type="date"]::-webkit-clear-button {
  -webkit-appearance: none;
   display: none;

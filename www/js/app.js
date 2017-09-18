@@ -276,6 +276,14 @@ angular.module('starter', ['ionic','ionic.closePopup' ,'starter.controllers', 's
         }
       }
     })
+    .state('app.addTour',{
+        url: '/addTour',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/appTutorials/add_tour.html'
+          }
+        }
+      })
   .state('app.helpDefineAdultsConcern',{
       url: '/mainHelp/helpDefineAdultsConcern',
       params: {

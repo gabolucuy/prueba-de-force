@@ -1,0 +1,41 @@
+<ion-view view-title="Tutorial" ng-controller="HelpTourCtrl">
+        <ion-nav-buttons side="left">
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+          <button class="button button-positive button-clear no-animation"
+                  ng-click="next()" ng-show="slideIndex != 4">
+            Next
+          </button>
+          <button class="button button-positive button-clear no-animation"
+                  ng-click="startApp()" ng-show="slideIndex == 4">
+            Finish
+          </button>
+        </ion-nav-buttons>
+
+        <ion-slide-box on-slide-changed="slideChanged(index)">
+          <ion-slide>
+            <h3>Welcome to the Main Help!</h3>
+            <div id="logo">
+              <img src="http://code.ionicframework.com/assets/img/app_icon.png">
+            </div>
+            <p>
+              At any given time you might need to add new children or unsolved problems.
+            </p>
+            <p>
+              Now we are going to explain you how to do it.
+            </p>
+          </ion-slide>
+          <ion-slide>
+            <h3>Add a new child</h3>
+            <div id="list" class="tutorialGif">
+                <img src="img/appTutorial/addNewChild.gif">
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <h3>Add a new unsolved problem</h3>
+            <div id="list" class="tutorialGif">
+                <img src="img/appTutorial/addUnsolvedProblem.gif">
+            </div>
+          </ion-slide>
+        </ion-slide-box>
+      </ion-view>
