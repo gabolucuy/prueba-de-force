@@ -39,7 +39,7 @@
     </button> 
     </ion-slide>
 
-    <ion-slide>
+    <ion-slide style=" background-color: black; opacity: 0.95;filter: alpha(opacity=95);">
         <ion-content ng-controller="ChildsCtrl" id="normalPage">
         <div ng-init="updateUnsolvedProblems()">
             <div class="item item-divider item-text-wrap">
@@ -63,6 +63,20 @@
                 </div>
             </div>
             </div>
+            <div class="row">
+        <div class = "col">
+            <div class="card">
+            <div class="item item-text-wrap text-center" >
+                <h2>
+                Let's start with registering a child. </br>
+                With the <b>cross</b> you can open window with the fields to create a new child
+                
+
+                </h2>
+            </div>
+            </div>
+        </div>
+        </div>
             </div>            
         </div>
         </ion-content> 
@@ -90,63 +104,17 @@
                     </div>
                     <div class="item item-divider item-text-wrap text-center">
                     <div class="button-bar">
-                        <div class="col col-50 button button-small button-positive" ng-click="activateChild(child)" ng-if="child.active === 0 ">
-                        <i class="icon ion-arrow-right-b"></i>
-                        </div>
-                        <div class="col col-50 button button-small button-balanced" ng-click="goTo('app.home')" ng-if="child.active === 1 ">
+                        <div class="col col-50 button button-small button-balanced" >
                         <i class="icon ion-arrow-right-c"></i>
                         </div>
-                        <div class="col col-50 button button-small button-calm" ng-click="showActionsheet(child)">
+                        <div class="col col-50 button button-small button-calm" >
                         <i class="icon ion-more"></i>
                         </div>
                     </div>
                     </div>
                 </div>
-                </div>
-                <div class="col col-50" style="opacity: 0.2;filter: alpha(opacity=20);">
-                <div class="card">
-                    <div class="item item-text-wrap text-center">                    
-                    <img class="full-image" ng-src="img/childs/girl.png" >
-                    <h2><b>Juana</b></h2>
-                    <p><b>Birth date:</b> {{convertStringToDate(child.birthday) | date:"dd/MM/yy"}}</p>
-                    </div>
-                    <div class="item item-divider item-text-wrap text-center">
-                    <div class="button-bar">
-                        <div class="col col-50 button button-small button-positive" ng-click="activateChild(child)" ng-if="child.active === 0 ">
-                        <i class="icon ion-arrow-right-b"></i>
-                        </div>
-                        <div class="col col-50 button button-small button-balanced" ng-click="goTo('app.home')" ng-if="child.active === 1 ">
-                        <i class="icon ion-arrow-right-c"></i>
-                        </div>
-                        <div class="col col-50 button button-small button-calm" ng-click="showActionsheet(child)">
-                        <i class="icon ion-more"></i>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                </div>
-                <div class="col col-50" ng-if="childs[$index+1]">
-                <div class="card">
-                    <div class="item item-text-wrap text-center">
-                    <img class="full-image" ng-src="img/childs/boy.png" ng-if="childs[$index+1].gender === 'Male'">
-                    <img class="full-image" ng-src="img/childs/girl.png" ng-if="childs[$index+1].gender === 'Female'">
-                    <h2><b>{{childs[$index+1].first_name}}</b></h2>
-                    <p><b>Birth date:</b> {{convertStringToDate(childs[$index+1].birthday) | date:"dd/MM/yy"}}</p>
-                    </div>
-                    <div class="item item-divider item-text-wrap text-center">
-                    <div class="button-bar">
-                        <div class="col col-50 button button-small button-positive" ng-click="activateChild(childs[$index+1])" ng-if="childs[$index+1].active === 0">
-                        <i class="icon ion-arrow-right-b"></i>
-                        </div>
-                        <div class="col col-50 button button-small button-balanced" ng-click="goTo('app.home')" ng-if="childs[$index+1].active === 1">
-                        <i class="icon ion-arrow-right-c"></i>
-                        </div>
-                        <div class="col col-50 button button-small button-calm" ng-click="showActionsheet(childs[$index+1])">
-                        <i class="icon ion-more"></i>
-                        </div>
-                    </div>
-                    </div>
-                </div>
+                </div>           
+                <div class="col col-50" ng-if="childs[$index+1]">             
                 </div>
             </div>                  
         </div>
@@ -157,7 +125,7 @@
             <div class="item item-text-wrap text-center" >
                 <h2>
                 We have registered a kid, Pepe. </br>
-                With the <b>three points bottom</b> you can display the options to edit or delete the child
+                With the <b>three points buttom</b> you can display the options to edit or delete the child
                 
 
                 </h2>
@@ -171,163 +139,161 @@
         </button>  
         </ion-content> 
     </ion-slide>
-    <ion-slide>
-        <ion-content ng-controller="ChildsCtrl" id="normalPage">
-        <div ng-init="updateUnsolvedProblems()">
-            <div class="item item-divider item-text-wrap">
-            <a ng-click="openModalCreate()" class="watchlist_menu button button-small button-clear button-positive">
-                <i class="icon ion-plus"></i>                          
-            </a>       
-            <div class="col col-75">            
-                <h2><b>My Children</b></h2>                               
+    <ion-slide style=" background-color: black; opacity: 0.95;filter: alpha(opacity=95);">
+        <ion-content ng-controller="ChildsCtrl">
+            <div ng-init="updateUnsolvedProblems()" style="opacity: 0.5;filter: alpha(opacity=50);  ">
+                <div class="item item-divider item-text-wrap">
+                    <a ng-click="openModalCreate()" class="watchlist_menu button button-small button-clear button-positive">
+                        <i class="icon ion-plus"></i>                          
+                    </a>       
+                    <div class="col col-75" >            
+                        <h2><b>My Children</b></h2>                  
+                    </div>
+                </div>            
             </div>
-            </div>
-            <div class="row" ng-if="childs.length === 0">
-            <div class = "col">
-                <div class="card">
-                <div class="item item-text-wrap text-center" >
-                    <h2>
-                    You haven't registered a child.
-                    <br> <b>PLEASE REGISTER ONE ABOVE
-                    </b>
-                    </h2>
-                </div>
-                </div>
-            </div>
-            </div>
-            </div>
-            <div ng-repeat="child in childs"> 
-            <div ng-if="$index%2==0" class="row">
+            
+            <div class="row">
                 <div class="col col-50">
-                <div class="card">
+                <div class="card" id="resplandorblanco">
                     <div class="item item-text-wrap text-center">
-                    <img class="full-image" ng-src="img/childs/boy.png" ng-if="child.gender === 'Male'">
-                    <img class="full-image" ng-src="img/childs/girl.png" ng-if="child.gender === 'Female'">
-                    <h2><b>{{child.first_name}}</b></h2>
-                    <p><b>Birth date:</b> {{convertStringToDate(child.birthday) | date:"dd/MM/yy"}}</p>
+                    <img class="full-image" ng-src="img/childs/boy.png" >                    
+                    <h2><b>Pepe</b></h2>
+                    <p><b>Birth date:</b> 17/09/2003</p>
                     </div>
                     <div class="item item-divider item-text-wrap text-center">
                     <div class="button-bar">
-                        <div class="col col-50 button button-small button-positive" ng-click="activateChild(child)" ng-if="child.active === 0 ">
-                        <i class="icon ion-arrow-right-b"></i>
-                        </div>
-                        <div class="col col-50 button button-small button-balanced" ng-click="goTo('app.home')" ng-if="child.active === 1 ">
+                        <div class="col col-50 button button-small button-balanced" >
                         <i class="icon ion-arrow-right-c"></i>
                         </div>
-                        <div class="col col-50 button button-small button-calm" ng-click="showActionsheet(child)">
+                        <div class="col col-50 button button-small button-calm" >
                         <i class="icon ion-more"></i>
                         </div>
                     </div>
                     </div>
                 </div>
                 </div>
-                <div class="col col-50" ng-if="childs[$index+1]">
-                <div class="card">
+                <div class="col col-50">
+                <div class="card" id="resplandorblanco">
                     <div class="item item-text-wrap text-center">
-                    <img class="full-image" ng-src="img/childs/boy.png" ng-if="childs[$index+1].gender === 'Male'">
-                    <img class="full-image" ng-src="img/childs/girl.png" ng-if="childs[$index+1].gender === 'Female'">
-                    <h2><b>{{childs[$index+1].first_name}}</b></h2>
-                    <p><b>Birth date:</b> {{convertStringToDate(childs[$index+1].birthday) | date:"dd/MM/yy"}}</p>
+                    <img class="full-image" ng-src="img/childs/girl.png" >                    
+                    <h2><b>Juana</b></h2>
+                    <p><b>Birth date:</b> 26/02/2004</p>
                     </div>
                     <div class="item item-divider item-text-wrap text-center">
                     <div class="button-bar">
-                        <div class="col col-50 button button-small button-positive" ng-click="activateChild(childs[$index+1])" ng-if="childs[$index+1].active === 0">
+                        <div class="col col-50 button button-small button-positive" >
                         <i class="icon ion-arrow-right-b"></i>
                         </div>
-                        <div class="col col-50 button button-small button-balanced" ng-click="goTo('app.home')" ng-if="childs[$index+1].active === 1">
-                        <i class="icon ion-arrow-right-c"></i>
-                        </div>
-                        <div class="col col-50 button button-small button-calm" ng-click="showActionsheet(childs[$index+1])">
+                        <div class="col col-50 button button-small button-calm" >
                         <i class="icon ion-more"></i>
                         </div>
                     </div>
                     </div>
                 </div>
                 </div>
+            
+              
+            </div>                  
+        </div>
+        
+        <div class="row">
+        <div class = "col">
+            <div class="card">
+            <div class="item item-text-wrap text-center" >
+                <h2>
+                We have registered another kid, Juana. </br>
+                With a <b>blue button with a triangle</b> that means you can change the focus on her
+                
+
+                </h2>
             </div>
             </div>
         </div>
+        </div>
+        
+        <button class="button button-positive button-clear no-animation" ng-click="next()">
+            Got it!
+        </button>  
         </ion-content> 
     </ion-slide>
 
-    <ion-slide>
-        <ion-content ng-controller="ChildsCtrl" id="normalPage">
-        <div ng-init="updateUnsolvedProblems()">
-            <div class="item item-divider item-text-wrap"> <!-- style="opacity: 0.2;filter: alpha(opacity=20);" -->
-            <a ng-click="openModalCreate()" class="watchlist_menu button button-small button-clear button-positive">
-                <i class="icon ion-plus"></i>                          
-            </a>       
-            <div class="col col-75">            
-                <h2><b>My Children</b></h2>                  
+    <ion-slide style=" background-color: black; opacity: 0.95;filter: alpha(opacity=95);">
+        <ion-content ng-controller="ChildsCtrl">
+            <div ng-init="updateUnsolvedProblems()" style="opacity: 0.5;filter: alpha(opacity=50);  ">
+                <div class="item item-divider item-text-wrap">
+                    <a ng-click="openModalCreate()" class="watchlist_menu button button-small button-clear button-positive">
+                        <i class="icon ion-plus"></i>                          
+                    </a>       
+                    <div class="col col-75" >            
+                        <h2><b>My Children</b></h2>                  
+                    </div>
+                </div>            
             </div>
-            </div>
-            <div class="row" ng-if="childs.length === 0">
-            <div class = "col">
-                <div class="card">
-                <div class="item item-text-wrap text-center" >
-                    <h2>
-                    You haven't registered a child.
-                    <br> <b>PLEASE REGISTER ONE ABOVE
-                    </b>
-                    </h2>
-                </div>
-                </div>
-            </div>
-            </div>
-            </div>
-            <div ng-repeat="child in childs"> 
-            <div ng-if="$index%2==0" class="row">
+            
+            <div class="row">
                 <div class="col col-50">
-                <div class="card">
+                <div class="card" id="resplandorblanco">
                     <div class="item item-text-wrap text-center">
-                    <img class="full-image" ng-src="img/childs/boy.png" ng-if="child.gender === 'Male'">
-                    <img class="full-image" ng-src="img/childs/girl.png" ng-if="child.gender === 'Female'">
-                    <h2><b>{{child.first_name}}</b></h2>
-                    <p><b>Birth date:</b> {{convertStringToDate(child.birthday) | date:"dd/MM/yy"}}</p>
+                    <img class="full-image" ng-src="img/childs/boy.png" >                    
+                    <h2><b>Pepe</b></h2>
+                    <p><b>Birth date:</b> 17/09/2003</p>
                     </div>
                     <div class="item item-divider item-text-wrap text-center">
                     <div class="button-bar">
-                        <div class="col col-50 button button-small button-positive" ng-click="activateChild(child)" ng-if="child.active === 0 ">
-                        <i class="icon ion-arrow-right-b"></i>
-                        </div>
-                        <div class="col col-50 button button-small button-balanced" ng-click="goTo('app.home')" ng-if="child.active === 1 ">
+                        <div class="col col-50 button button-small button-positive" >
                         <i class="icon ion-arrow-right-c"></i>
                         </div>
-                        <div class="col col-50 button button-small button-calm" ng-click="showActionsheet(child)">
+                        <div class="col col-50 button button-small button-calm" >
                         <i class="icon ion-more"></i>
                         </div>
                     </div>
                     </div>
                 </div>
                 </div>
-                <div class="col col-50" ng-if="childs[$index+1]">
-                <div class="card">
+                <div class="col col-50">
+                <div class="card" id="resplandorblanco">
                     <div class="item item-text-wrap text-center">
-                    <img class="full-image" ng-src="img/childs/boy.png" ng-if="childs[$index+1].gender === 'Male'">
-                    <img class="full-image" ng-src="img/childs/girl.png" ng-if="childs[$index+1].gender === 'Female'">
-                    <h2><b>{{childs[$index+1].first_name}}</b></h2>
-                    <p><b>Birth date:</b> {{convertStringToDate(childs[$index+1].birthday) | date:"dd/MM/yy"}}</p>
+                    <img class="full-image" ng-src="img/childs/girl.png" >                    
+                    <h2><b>Juana</b></h2>
+                    <p><b>Birth date:</b> 26/02/2004</p>
                     </div>
                     <div class="item item-divider item-text-wrap text-center">
                     <div class="button-bar">
-                        <div class="col col-50 button button-small button-positive" ng-click="activateChild(childs[$index+1])" ng-if="childs[$index+1].active === 0">
+                        <div class="col col-50 button button-small button-balanced" >
                         <i class="icon ion-arrow-right-b"></i>
                         </div>
-                        <div class="col col-50 button button-small button-balanced" ng-click="goTo('app.home')" ng-if="childs[$index+1].active === 1">
-                        <i class="icon ion-arrow-right-c"></i>
-                        </div>
-                        <div class="col col-50 button button-small button-calm" ng-click="showActionsheet(childs[$index+1])">
+                        <div class="col col-50 button button-small button-calm" >
                         <i class="icon ion-more"></i>
                         </div>
                     </div>
                     </div>
                 </div>
                 </div>
+            
+              
+            </div>                  
+        </div>
+        
+        <div class="row">
+        <div class = "col">
+            <div class="card">
+            <div class="item item-text-wrap text-center" >
+                <h2>
+                We have pressed in the Juana's blue button. </br> Thats means the <b>manage children</b> will be focus in her and no with Pepe
+                
+
+                </h2>
             </div>
             </div>
         </div>
+        </div>
+        
+        <button class="button button-positive button-clear no-animation" ng-click="next()">
+            Got it!
+        </button>  
         </ion-content> 
     </ion-slide>
+
     <ion-slide>
         
         <h3>If you feel ready to start with the app, click below</h3>
