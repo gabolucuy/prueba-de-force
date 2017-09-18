@@ -18,9 +18,7 @@
     }   
 </style>
 <ion-nav-buttons side="left">        
-    <button class="button button-positive button-clear no-animation" ng-click="previous()" ng-show="slideIndex > 0">
-    Previous
-    </button>
+   
 </ion-nav-buttons>
 
 <ion-nav-buttons side="right">      
@@ -52,9 +50,9 @@
         <div ng-init="updateUnsolvedProblems()" >
             <div class="item item-divider item-text-wrap">
             <a ng-click="openModalCreate()" class="watchlist_menu button button-small button-clear button-positive">
-                <i class="icon ion-plus" id="resplandorrojo"></i>                          
+                <i class="icon ion-plus" id="resplandorblanco"></i>                          
             </a>       
-            <div class="col col-75">            
+            <div class="col col-75" style="opacity: 0.3;filter: alpha(opacity=30);">            
                 <h2><b>My Children</b></h2>                  
             </div>
             </div>
@@ -78,7 +76,7 @@
                 <h2>
                 First of all, you will see this message on the view.
                 Let's start with registering a child. </br>
-                With the <b>cross</b> you can open a window with fields to create a new child.</br>
+                Pressing on the <b>cross</b> will open a window with fields to create a new child.</br>
                 Fill them and then press on <b>create</b>.              
                 </h2>
             </div>
@@ -87,14 +85,21 @@
         </div>
             </div>            
         </div>
+
+        <div class="button-bar"> 
+        <button class="button button-positive button-clear no-animation" ng-click="previous()">
+            Go back
+        </button>
         <button class="button button-positive button-clear no-animation" ng-click="next()">
             Done
-        </button> 
+        </button>                 
+        </div>
+
         </ion-content> 
     </ion-slide>
     <ion-slide style=" background-color: black; opacity: 0.95;filter: alpha(opacity=95);">
         <ion-content ng-controller="ChildsCtrl">
-            <div ng-init="updateUnsolvedProblems()" style="opacity: 0.5;filter: alpha(opacity=50);">
+            <div ng-init="updateUnsolvedProblems()" style="opacity: 0.3;filter: alpha(opacity=30);">
                 <div class="item item-divider item-text-wrap">
                     <a class="watchlist_menu button button-small button-clear button-positive">
                         <i class="icon ion-plus"></i>                          
@@ -108,14 +113,14 @@
             <div class="row">
                 <div class="col col-50">
                 <div class="card">
-                    <div class="item item-text-wrap text-center" style="opacity: 0.5;filter: alpha(opacity=50);">
+                    <div class="item item-text-wrap text-center" style="opacity: 0.3;filter: alpha(opacity=30);">
                     <img class="full-image" ng-src="img/childs/boy.png" >                    
                     <h2><b>Pepe</b></h2>
                     <p><b>Birth date:</b> 17/09/2003</p>
                     </div>
                     <div class="item item-divider item-text-wrap text-center">
                     <div class="button-bar">                            
-                        <div class="col col-50 button button-small button-positive" style="opacity: 0.5;filter: alpha(opacity=50);">
+                        <div class="col col-50 button button-small button-positive" style="opacity: 0.3;filter: alpha(opacity=30);">
                         <i class="icon ion-arrow-right-b"></i>
                         </div>
                         <div class="col col-50 button button-small button-calm" id="resplandorblanco" ng-click="showActionsheet(child)">
@@ -136,21 +141,27 @@
             <div class="item item-text-wrap text-center" >
                 <h2>
                 We have registered a kid, Pepe. </br>
-                With the <b>three points button</b> you can display the options to edit or delete the child                
+                With its <b>three points button</b> you can display the options to edit or delete the child                
                 </h2>
             </div>
             </div>
         </div>
         </div>
-        
+
+        <div class="button-bar"> 
+        <button class="button button-positive button-clear no-animation" ng-click="previous()">
+            Go back
+        </button>
         <button class="button button-positive button-clear no-animation" ng-click="next()">
             Got it!
-        </button>  
+        </button>                            
+        </div>  
+
         </ion-content> 
     </ion-slide>
     <ion-slide style=" background-color: black; opacity: 0.95;filter: alpha(opacity=95);">
         <ion-content ng-controller="ChildsCtrl">
-            <div ng-init="updateUnsolvedProblems()" style="opacity: 0.5;filter: alpha(opacity=50);  ">
+            <div ng-init="updateUnsolvedProblems()" style="opacity: 0.3;filter: alpha(opacity=30);  ">
                 <div class="item item-divider item-text-wrap">
                     <a ng-click="openModalCreate()" class="watchlist_menu button button-small button-clear button-positive">
                         <i class="icon ion-plus"></i>                          
@@ -164,17 +175,17 @@
             <div class="row">
                 <div class="col col-50">
                 <div class="card" >
-                    <div class="item item-text-wrap text-center" style="opacity: 0.5;filter: alpha(opacity=50);">
+                    <div class="item item-text-wrap text-center" style="opacity: 0.3;filter: alpha(opacity=30);">
                     <img class="full-image" ng-src="img/childs/boy.png" >                    
                     <h2><b>Pepe</b></h2>
                     <p><b>Birth date:</b> 17/09/2003</p>
                     </div>
                     <div class="item item-divider item-text-wrap text-center">
                     <div class="button-bar">
-                        <div class="col col-50 button button-small button-positive" style="opacity: 0.5;filter: alpha(opacity=50);">
+                        <div class="col col-50 button button-small button-positive" style="opacity: 0.3;filter: alpha(opacity=30);">
                             <i class="icon ion-arrow-right-b"></i>
                         </div>
-                        <div class="col col-50 button button-small button-calm" style="opacity: 0.5;filter: alpha(opacity=50);">
+                        <div class="col col-50 button button-small button-calm" style="opacity: 0.3;filter: alpha(opacity=30);">
                         <i class="icon ion-more"></i>
                         </div>
                     </div>
@@ -183,7 +194,7 @@
                 </div>
                 <div class="col col-50">
                 <div class="card"  >
-                    <div class="item item-text-wrap text-center" style="opacity: 0.5;filter: alpha(opacity=50);">
+                    <div class="item item-text-wrap text-center" style="opacity: 0.3;filter: alpha(opacity=30);">
                     <img class="full-image" ng-src="img/childs/girl.png" >                    
                     <h2><b>Juana</b></h2>
                     <p><b>Birth date:</b> 26/02/2004</p>
@@ -193,7 +204,7 @@
                         <div class="col col-50 button button-small button-positive"  id="resplandorblanco">
                         <i class="icon ion-arrow-right-b"></i>
                         </div>
-                        <div class="col col-50 button button-small button-calm" style="opacity: 0.5;filter: alpha(opacity=50);">
+                        <div class="col col-50 button button-small button-calm" style="opacity: 0.3;filter: alpha(opacity=30);">
                         <i class="icon ion-more"></i>
                         </div>
                     </div>
@@ -214,11 +225,16 @@
             </div>
             </div>
         </div>
-        </div>
+        </div>        
         
-        <button class="button button-positive button-clear no-animation" ng-click="next()">
-            Got it!
+        <div class="button-bar">          
+        <button class="button button-positive button-clear no-animation" ng-click="previous()">
+            Go back
         </button>  
+        <button class="button button-positive button-clear no-animation" ng-click="next()">
+            Understood!
+        </button> 
+        </div>
         </ion-content> 
     </ion-slide>
 
@@ -289,9 +305,15 @@
         </div>
         </div>
         
+        <div class="button-bar">          
+        <button class="button button-positive button-clear no-animation" ng-click="previous()">
+            Go back
+        </button>   
         <button class="button button-positive button-clear no-animation" ng-click="next()">
-            Got it!
-        </button>  
+            Ok!
+        </button>         
+        </div>
+
         </ion-content> 
     </ion-slide>
 
@@ -306,9 +328,9 @@
         </div>
         <div>            
         <button class="button button-positive button-clear no-animation" ng-click="watchChildrenWizard()" >
-            Maybe one more time
+            I will look again the tutorial
         </button>
-        </div>
+        </div>        
     </ion-slide>
 
 </ion-slide-box>
