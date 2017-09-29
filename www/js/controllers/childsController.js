@@ -82,6 +82,11 @@ angular.module('starter.controllers')
           $scope.child.gender = "Female";
           $scope.child.birthday = new Date();
           $scope.closeModalCreate();
+          if(typeof analytics !== 'undefined') {
+            analytics.trackEvent('Child', 'Create')
+          } else {
+            console.log("Google Analytics Unavailable");
+          }
           ChildrenFactory.all(function(children){
             $scope.childs = children;
             var lastChild = children.pop();
@@ -108,6 +113,11 @@ angular.module('starter.controllers')
         ChildrenFactory.all(function(children){
           $scope.childs = children;
         });
+        if(typeof analytics !== 'undefined') {
+          analytics.trackEvent('Child', 'Edit')
+        } else {
+          console.log("Google Analytics Unavailable");
+        }
       }
     };
 
@@ -165,6 +175,26 @@ angular.module('starter.controllers')
       $state.go(route);
     };
 
+    $scope.ALSUPbutton = function(child){
+      if(child.active === 0){
+        $scope.activateChild(child);
+      }
+      var confirmPopup = $ionicPopup.confirm({
+        template: 'Are you finished with the ALSUP?',
+        cancelText: 'No',
+        okText: 'Yes'
+      });
+
+      confirmPopup.then(function(res) {
+       if(res) {
+        $state.go('app.newUnsolvedProblem');
+       } else{
+        $state.go('app.laggingSkills');
+       }
+      });
+
+    };
+
     $scope.deleteChild = function(child) {
       if(child.active === 1){
         $scope.activeChild={first_name:""};
@@ -175,6 +205,11 @@ angular.module('starter.controllers')
           $scope.activeChild = active_child;
         });
       });
+      if(typeof analytics !== 'undefined') {
+        analytics.trackEvent('Child', 'Delete')
+      } else {
+        console.log("Google Analytics Unavailable");
+      }
     };
     $scope.showConfirm = function(child) {
       var confirmPopup = $ionicPopup.confirm({
@@ -205,8 +240,10 @@ angular.module('starter.controllers')
         });
     };
 
-    $scope.showIntroductionPage = function(childs) {
-      var buttonsTemplate =
+    $scope.showIntroductionPage = function() {
+      if(localStorage.getItem("pop_up_first_time") === null && localStorage.getItem("tutorial_first_time") != null){
+            localStorage.setItem("pop_up_first_time", true);
+               var buttonsTemplate =
          '<div class="button-bar">'+
             '<a href="http://livesinthebalance.org/walking-tour-parents" class="button button-assertive">'+
             '<b><font size="2">Parent</font></b>'+
@@ -218,15 +255,13 @@ angular.module('starter.controllers')
             '<b><font size="2">Sign in</font></b>'+
             '</a>'+
          '<div>';
-  
-      if(childs == 0){
         var myPopup = $ionicPopup.show({
         title: 'Welcome to Lens Changer',
         subTitle: 'You can choose a option!',
         template: buttonsTemplate,
         cssClass: 'popup-intro',
         buttons: [
-            { 
+            {
               type: 'button button-balanced',
               text: '<div><b><font size="2">Ready</font></b></div>',
               onTap: function(e) {
@@ -242,13 +277,24 @@ angular.module('starter.controllers')
         $scope.educatorPage = function(){
             $window.open('', '_system', 'location=yes');
         }
-       
+
         $scope.sign_inPage = function(){
           $window.open('', '_system', 'location=yes');
         }
-      }
+          }
     };
-  
+
+    $scope.showTutorialFirstTime = function() {
+          $scope.showIntroductionPage();
+         if(localStorage.getItem("tutorial_first_time") === null ){
+
+           localStorage.setItem("tutorial_first_time", true);
+          $state.go('app.tutorial');
+              }
+
+
+        };
+
     $scope.googleAnalyticsView = function() {
      if(typeof analytics !== 'undefined') {
        analytics.trackView('Manage Children view');
@@ -289,8 +335,3 @@ function createLaggingSkills (cordovaSQLite, child_id){
       cordovaSQLite.execute(db,item,[child_id]);
     });
 }
-
-
-
-
-
